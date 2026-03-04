@@ -12,15 +12,15 @@ jobs:
       - name: Checkout source repo
         uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332
 
-      - name: Configure Git
+      - name: Configure Git identity
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
 
-      - name: Add destination repo
+      - name: Add destination repo remote
         run: |
-          git remote add dest https://x-access-token:${{ secrets.PAT_SYNC }}@github.com//mmtesthoro/urban-memory
+          git remote add dest https://x-access-token:${{ secrets.PAT_SYNC }}@github.com/mmtesthoro/urban-memory.git
 
-      - name: Push to destination
+      - name: Push to destination repo
         run: |
           git push dest main --force

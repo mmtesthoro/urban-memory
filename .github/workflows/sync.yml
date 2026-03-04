@@ -1,34 +1,26 @@
 name: Sync to Organization Repo
 
 on:
-  workflow_dispatch:
-  #branches: [ main ]
-    inputs:
-      branch:
-        description: AWS Region.
-        required: true
-        default: 'main'
-permissions:
-  id-token: write
-  contents: read         
-
-# Limit concurrent jobs to avoid terraform lock issues
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: false
+  push:
+    branches: [ main ]
 
 jobs:
   sync:
     runs-on: linux-x64-medium
 
     steps:
-      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332
+      - name: Checkout source repo
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332
 
-      - name: Sync to org repo
-        uses: repo-sync/github-sync@v2
-        with:
-          source_repo: ${{ github.repository }}
-          source_branch: main
-          destination_repo: mmtesthoro/urban-memory
-          destination_branch: main
-          github_token: ${{ secrets.PAT_SYNC }}
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
+      - name: Add destination repo
+        run: |
+          git remote add dest https://x-access-token:${{ secrets.PAT_SYNC }}@github.com/merck_gen/test.git
+
+      - name: Push to destination
+        run: |
+          git push dest main --force

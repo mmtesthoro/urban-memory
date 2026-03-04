@@ -19,7 +19,7 @@ jobs:
 
       - name: Add destination repo
         run: |
-          git remote add dest https://x-access-token:${{ secrets.PAT_SYNC }}@github.com/merck_gen/test.git
+          git remote add dest https://x-access-token:${{ secrets.PAT_SYNC }}@github.com//mmtesthoro/urban-memory
 
       - name: Push to destination
         run: |

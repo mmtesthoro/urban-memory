@@ -1,0 +1,21 @@
+name: Sync to Organization Repo
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332
+
+      - name: Sync to org repo
+        uses: repo-sync/github-sync@v2
+        with:
+          source_repo: ${{ github.repository }}
+          source_branch: main
+          destination_repo: mmtesthoro/urban-memory
+          destination_branch: main
+          github_token: ${{ secrets.PAT_SYNC }}

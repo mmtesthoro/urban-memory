@@ -17,6 +17,13 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
 
+      - name: Check if PAT is present
+        run: |
+          if [ -z "${{ secrets.PAT_SYNC }}" ]; then
+            echo "PAT is missing!"
+            exit 1
+          fi
+
       - name: Add destination repo remote
         run: |
           git remote add dest https://x-access-token:${{ secrets.PAT_SYNC }}@github.com/mmtesthoro/urban-memory.git

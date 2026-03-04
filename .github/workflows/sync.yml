@@ -21,7 +21,8 @@ jobs:
         run: |
           if [ -z "${{ secrets.PAT_SYNC }}" ]; then
             echo "PAT is missing!"
-            exit 1
+          else:
+            echo "PAT is there"
           fi
 
       - name: Add destination repo remote

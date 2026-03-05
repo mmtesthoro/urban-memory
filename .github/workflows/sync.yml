@@ -6,10 +6,6 @@ on:
 
 jobs:
   sync:
-    permissions: 
-      contents: none
-      packages: none
-      pull-requests: none
     runs-on: linux-x64-medium
 
     steps:

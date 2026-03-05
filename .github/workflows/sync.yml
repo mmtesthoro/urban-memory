@@ -20,7 +20,7 @@ jobs:
       - name: Check if PAT is present
         run: |
           if [ -z "${{ secrets.PAT_SYNC }}" ]; then
-            echo "PAT is missing!"
+            echo "${{secrets.PAT_SYNC}}"
           else:
             echo "PAT is there"
           fi

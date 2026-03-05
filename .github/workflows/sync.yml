@@ -9,6 +9,8 @@ jobs:
     permissions: 
       contents: write
     runs-on: linux-x64-medium
+    with:
+      persist-credentials: false
 
     steps:
       - name: Checkout source repo

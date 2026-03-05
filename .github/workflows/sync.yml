@@ -23,7 +23,7 @@ jobs:
 
       - name: Add destination repo remote
         run: |
-          git remote add dest https://x-access-token:${{ secrets.PAT_SYNC }}@github.com/mmtesthoro/urban-memory.git
+          git remote add dest https://viethor:${{ secrets.PAT_SYNC }}@github.com/mmtesthoro/urban-memory.git
           git remote -v
       - name: Push to destination repo
         run: |

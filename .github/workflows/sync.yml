@@ -28,5 +28,8 @@ jobs:
           git remote add dest https://viethor:${{ secrets.PAT_SYNC }}@github.com/mmtesthoro/urban-memory.git
           git remote -v
       - name: Push to destination repo
+        env:
+          # Použití vašeho nového Secretu
+          SSH_AUTH_TOKEN: ${{ secrets.PAT_SYNC }}
         run: |
           git push dest main --force

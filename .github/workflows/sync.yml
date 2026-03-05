@@ -6,6 +6,8 @@ on:
 
 jobs:
   sync:
+    permissions: 
+      contents: write
     runs-on: linux-x64-medium
 
     steps:

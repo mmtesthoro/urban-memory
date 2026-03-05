@@ -7,10 +7,10 @@ on:
 jobs:
   sync:
     permissions: 
-      contents: write
+      contents: none
+      packages: none
+      pull-requests: none
     runs-on: linux-x64-medium
-    with:
-      persist-credentials: false
 
     steps:
       - name: Checkout source repo

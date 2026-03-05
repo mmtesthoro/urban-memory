@@ -14,8 +14,8 @@ jobs:
 
       - name: Configure Git identity
         run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
+          git config user.name "mmarton_merck"
+          git config user.email "matus.marton@msd.com"
 
       - name: Check if PAT is present
         run: |

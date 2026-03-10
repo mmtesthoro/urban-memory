@@ -1,5 +1,4 @@
 name: Sync to Organization Repo
-
 on:
   push:
     paths-ignore:

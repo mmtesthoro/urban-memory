@@ -22,6 +22,11 @@ jobs:
           git config user.name "viethor"
           git config user.email "matuscogscimarton@gmail.com"
 
+      - name: Remove workflows before syncing
+        run: |
+          git rm -r --cached .github/workflows || true
+          git commit -m "Remove workflows from sync" || true
+
       - name: Add destination repo remote and push
         env:
           # Použití vašeho nového Secretu

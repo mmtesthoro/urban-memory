@@ -1,8 +1,6 @@
 name: Sync to Organization Repo
 on:
   push:
-    paths-ignore:
-      - '.github/workflows/**'
     branches: [ main ]
 
 jobs:
@@ -32,4 +30,4 @@ jobs:
           SSH_AUTH_TOKEN: ${{ secrets.PAT_SYNC }}
         run: |
           git remote add dest https://viethor:${SSH_AUTH_TOKEN}@github.com/mmtesthoro/urban-memory.git
-          git push dest HEAD:merck-sync --force
+          git push dest main --force

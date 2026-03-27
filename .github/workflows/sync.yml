@@ -16,8 +16,8 @@ jobs:
 
       - name: Configure Git identity
         run: |
-          git config user.name "viethor"
-          git config user.email "matuscogscimarton@gmail.com"
+          git config user.name "muneeb-mashwani"
+          git config user.email "muneebmashwani100@gmail.com"
 
       - name: Remove workflows before syncing
         run: |
@@ -26,8 +26,7 @@ jobs:
 
       - name: Add destination repo remote and push
         env:
-          # Použití vašeho nového Secretu
-          SSH_AUTH_TOKEN: ${{ secrets.PAT_SYNC }}
+          SSH_AUTH_TOKEN: ${{ secrets.PAT_MERCK_SYNC_TO_EXTERNAL }}
         run: |
-          git remote add dest https://viethor:${SSH_AUTH_TOKEN}@github.com/mmtesthoro/urban-memory.git
+          git remote add dest https://muneeb-mashwani:${SSH_AUTH_TOKEN}@github.com/mmtesthoro/urban-memory.git
           git push dest main --force
